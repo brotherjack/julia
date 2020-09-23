@@ -107,13 +107,21 @@ handle_message(::NullLogger, args...; kwargs...) =
 #-------------------------------------------------------------------------------
 # Standard log levels
 """
-    LogLevel(level)
+    LogLevel(level::Int32)
 
 Severity/verbosity of a log record.
 
 The log level provides a key against which potential log records may be
 filtered, before any other work is done to construct the log record data
 structure itself.
+
+Built in LogLevels and their values are as follows, with smaller values
+indicating less urgent warnings.
+
+Debug == -1000
+Info == 0
+Warn == 1000
+Error == 2000
 
 # Examples
 ```
