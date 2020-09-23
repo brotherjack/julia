@@ -20,7 +20,7 @@ int mainCRTStartup(void)
 {
     int argc;
     LPWSTR * wargv = CommandLineToArgv(GetCommandLine(), &argc);
-    char ** argv = (char **)malloc(sizeof(char *)*argc);
+    char ** argv = (char **)malloc(sizeof(char *)*(argc+1));
     setup_stdio();
 #else
 int main(int argc, char * argv[])
@@ -39,6 +39,7 @@ int main(int argc, char * argv[])
             return 1;
         }
     }
+    argv[argc] = NULL;
 #endif
 
     // Call load_repl with our initialization arguments:
